@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ELEC6098 期末复习 | Electronic Commerce & Mobile Commerce</title>
+<style>
+  :root{--bg:#0f1220;--card:#181c2f;--card2:#1f2440;--txt:#e8eaf6;--muted:#9aa3c7;--acc:#5b8cff;--acc2:#7c5bff;--ok:#2ecc71;--warn:#f0b429;--bad:#ff5c7a;--line:#2a3052}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;background:var(--bg);color:var(--txt);line-height:1.7}
+  header{padding:32px 20px 20px;text-align:center;background:linear-gradient(135deg,#1a1f3d,#26184a)}
+  header h1{font-size:1.6rem;background:linear-gradient(90deg,var(--acc),var(--acc2));-webkit-background-clip:text;background-clip:text;color:transparent}
+  header p{color:var(--muted);font-size:.9rem;margin-top:6px}
+  nav{position:sticky;top:0;display:flex;justify-content:center;gap:8px;padding:10px;background:rgba(15,18,32,.95);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);z-index:10;flex-wrap:wrap}
+  nav button{background:var(--card);border:1px solid var(--line);color:var(--txt);padding:8px 18px;border-radius:20px;cursor:pointer;font-size:.9rem}
+  nav button.active{background:linear-gradient(90deg,var(--acc),var(--acc2));border:none;font-weight:600}
+  main{max-width:960px;margin:0 auto;padding:20px}
+  section{display:none}
+  section.show{display:block;animation:fade .3s}
+  @keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1}}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px;margin-bottom:16px}
+  .card h2{font-size:1.15rem;margin-bottom:10px;color:var(--acc)}
+  .card h3{font-size:1rem;margin:14px 0 6px;color:#c3cbff}
+  .en{color:var(--muted);font-size:.88rem}
+  .zh{font-size:.95rem}
+  table{width:100%;border-collapse:collapse;margin:10px 0;font-size:.88rem}
+  th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+  th{background:var(--card2);color:#c3cbff}
+  code{background:var(--card2);padding:1px 6px;border-radius:4px;font-size:.85rem}
+  .tag{display:inline-block;background:var(--card2);border:1px solid var(--line);border-radius:12px;padding:1px 10px;font-size:.78rem;color:var(--muted);margin:2px}
+  /* quiz */
+  .q{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px;margin-bottom:14px}
+  .q .stem{font-weight:600;margin-bottom:8px}
+  .opts label{display:block;background:var(--card2);border:1px solid var(--line);border-radius:8px;padding:8px 12px;margin:6px 0;cursor:pointer;transition:.15s}
+  .opts label:hover{border-color:var(--acc)}
+  .opts label.sel{border-color:var(--acc);background:#26305c}
+  .opts label.correct{border-color:var(--ok);background:rgba(46,204,113,.12)}
+  .opts label.wrong{border-color:var(--bad);background:rgba(255,92,122,.12)}
+  .expl{display:none;margin-top:10px;padding:10px 12px;background:var(--card2);border-left:3px solid var(--acc);border-radius:6px;font-size:.88rem}
+  .expl.show{display:block}
+  .btn{background:linear-gradient(90deg,var(--acc),var(--acc2));border:none;color:#fff;padding:9px 22px;border-radius:20px;cursor:pointer;font-size:.9rem;margin:4px 6px 4px 0}
+  .btn.ghost{background:var(--card2);border:1px solid var(--line);color:var(--txt)}
+  .score{font-size:1.05rem;font-weight:700;margin:14px 0;color:var(--warn)}
+  .short input{width:100%;background:var(--card2);border:1px solid var(--line);border-radius:8px;color:var(--txt);padding:9px 12px;font-size:.92rem;margin-top:8px}
+  details{background:var(--card2);border-radius:8px;padding:10px 14px;margin-top:10px;border:1px solid var(--line)}
+  summary{cursor:pointer;font-weight:600;color:#c3cbff}
+  .model{margin-top:8px;font-size:.9rem;white-space:pre-wrap}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  @media(max-width:640px){.grid2{grid-template-columns:1fr}}
+  footer{text-align:center;color:var(--muted);font-size:.8rem;padding:24px}
+</style>
+</head>
+<body>
+<header>
+  <h1>📚 ELEC6098 期末复习站 · Final Exam Review</h1>
+  <p>Electronic Commerce &amp; Mobile Commerce 电子商务与移动商务 · 中英对照 EN/中文 · 基于历年真题（May 2017 with answers）整理</p>
+</header>
+<nav>
+  <button class="active" data-t="t1">📖 知识点 Knowledge</button>
+  <button data-t="t2">💬 答疑 FAQ</button>
+  <button data-t="t3">✅ 选择题 MCQ</button>
+  <button data-t="t4">✍️ 简答题 Short Q</button>
+  <button data-t="t5">📝 大题 Essays</button>
+  <button data-t="t6">📚 课程讲义 Notes</button>
+  <button data-t="t7">🎯 Kahoot 刷题</button>
+</nav>
+<main>
+
+<!-- ============ 1. 知识点 ============ -->
+<section id="t1" class="show">
+
+<div class="card">
+  <h2>考试结构 Exam Structure</h2>
+  <table>
+    <tr><th>Part</th><th>题型 Format</th><th>分值 Marks</th><th>策略 Strategy</th></tr>
+    <tr><td>A</td><td>选择题 8 题 MCQ ×2</td><td>16%</td><td>全部作答，多为"多选组合"型，逐条判断 (i)(ii)(iii) 再选答案</td></tr>
+    <tr><td>B</td><td>简答题 10 题 ×3 Short answer（一词/短语作答）</td><td>30%</td><td>只写关键词，不展开。考"场景→技术"映射</td></tr>
+    <tr><td>C</td><td>论述题 4 选 3 ×18 Essays</td><td>54%</td><td>每题 3 小问，常要求画图（PKI、支付网关、RFID）</td></tr>
+  </table>
+</div>
+
+<div class="card">
+  <h2>1. 安全与加密 Security &amp; Encryption</h2>
+  <h3>对称 vs 非对称加密 / Symmetric vs Asymmetric</h3>
+  <table>
+    <tr><th></th><th>对称 Symmetric (DES/AES)</th><th>非对称 Asymmetric (RSA)</th></tr>
+    <tr><td>密钥 Keys</td><td>单一共享密钥 one shared secret key</td><td>公钥+私钥 public/private key pair</td></tr>
+    <tr><td>速度 Speed</td><td>快 fast（约快 100–1000 倍）</td><td>慢 slow</td></tr>
+    <tr><td>密钥分发 Key distribution</td><td>困难（需安全传给对方）hard</td><td>公钥可公开分发 easy</td></tr>
+    <tr><td>用途 Use</td><td>大文件/会话数据加密 bulk data</td><td>密钥交换、数字签名 key exchange, signature</td></tr>
+  </table>
+  <p class="zh">✔ 真题 A1：对称加密优点 = (i) 只知算法不足以解密 + (iii) 更快 → <b>E</b>。注意 (ii) "无需密钥" 和 (iv) "无需分发密钥" 都是错的——对称加密恰恰需要密钥且要分发。</p>
+  <h3>哈希函数 Hash Function</h3>
+  <p class="zh">把任意长消息变成固定长度摘要（digest），单向、不可逆。用于完整性 integrity 与数字签名。常见：MD5、SHA 系列。</p>
+  <p class="en">One-way function turning a long message into a fixed-length digest; used for integrity and digital signatures.</p>
+  <h3>数字签名与 PKI / Digital Signature &amp; PKI</h3>
+  <p class="zh">签名 = 用<b>发送方私钥</b>加密消息的哈希；接收方用发送方<b>公钥</b>验证。提供身份认证 authentication、完整性 integrity、不可否认性 non-repudiation。PKI 由 CA（证书机构）签发证书绑定"身份↔公钥"。</p>
+  <p class="en">Signature = hash of message encrypted with the sender's <b>private key</b>; verified with the sender's public key. Provides authentication, integrity, non-repudiation. PKI: Certificate Authority binds identity to public key.</p>
+  <ul>
+    <li class="zh">机密消息（David→Ann）：用<b>Ann 的公钥</b>加密 → 只有 Ann 的私钥能解</li>
+    <li class="zh">签名消息（Ann→David）：用 <b>Ann 的私钥</b>签哈希 → David 用 Ann 公钥验</li>
+    <li class="zh">实际系统 = 混合：对称密钥加密数据 + 非对称传密钥（如 TLS/SSL）</li>
+  </ul>
+  <h3>双因素认证 2FA / Two-Factor Authentication</h3>
+  <p class="zh">组合<b>两种不同类别</b>的凭证：知识 factors（密码/PIN）+ 持有 factors（手机/智能卡/OTP token）+ 生物 factors（指纹/面容）。实现举例：密码+短信验证码、密码+TOTP（Google Authenticator）、ATM 卡+PIN、密码+U2F 安全钥匙。</p>
+  <p class="en">Combining two different categories of credentials: knowledge (password), possession (phone/smart card/OTP), inherence (biometrics). E.g. password + SMS OTP, ATM card + PIN.</p>
+</div>
+
+<div class="card">
+  <h2>2. 网络与移动通信 Networks &amp; Mobile Communications</h2>
+  <h3>防火墙 Firewall</h3>
+  <p class="zh">功能：按源/目的地址过滤 IP 包；作为所有外部通信必经的瓶颈点（choke point）保护多台服务器；限制本地用户访问外部。❌ 不备份文件。</p>
+  <h3>WiFi 安全风险与对策 / WiFi Risks &amp; Countermeasures</h3>
+  <div class="grid2">
+    <div><b class="zh">风险 Risks</b><ul style="font-size:.88rem;padding-left:18px">
+      <li>窃听 eavesdropping（开放信道）</li>
+      <li>假冒 AP / evil twin 恶意热点</li>
+      <li>中间人攻击 MITM</li>
+      <li>WEP/WPS 弱加密被破解</li>
+      <li>未授权接入盗用带宽、ARP 欺骗</li></ul></div>
+    <div><b class="zh">对策 Mitigation</b><ul style="font-size:.88rem;padding-left:18px">
+      <li>用 WPA3/WPA2-AES，禁用 WEP/WPS</li>
+      <li>关闭 SSID 广播 + MAC 过滤</li>
+      <li>VPN / HTTPS 端到端加密</li>
+      <li>强密码、定期换密钥</li>
+      <li>入侵检测 IDS + 静态 IP / 802.1X 认证</li></ul></div>
+  </div>
+  <h3>蜂窝网络容量 / Cellular Capacity（真题 B9/B10）</h3>
+  <p class="zh">提高容量四法：① 新增信道 adding new channels；② 小区分裂 cell splitting；③ 小区分区/扇区化 cell sectoring；④ 微小区 microcells。</p>
+  <h3>GSM 频率复用 / Frequency Reuse（真题 A5）</h3>
+  <p class="zh">复用簇从 4 信道扩到 7：同频干扰↓、信噪比↑、定位更准（更多基站/信号）；但需要<b>更多</b>频谱而非更少 → 答案 D。</p>
+  <h3>TD-SCDMA 特色 / Unique Features（真题 B7/B8）</h3>
+  <ul><li>时分双工 TDD（上下行同频分时隙，不对称业务高效）</li>
+  <li>智能天线 smart antenna（波束赋形 beamforming）</li>
+  <li>同步 CDMA（上行与基站同步，降低干扰）</li>
+  <li>中国自主 3G 标准（答任意两条即可）</li></ul>
+  <h3>IPv6 vs IPv4（真题 C2a）</h3>
+  <p class="zh">① 128 位地址（几乎无限）vs 32 位；② 内置 IPsec 安全支持；③ 无需 NAT，端到端连通；④ 简化头部、路由更快；⑤ 内置支持移动性 MIPv6 与自动配置 SLAAC；④ 组播与流标签 QoS 更好。</p>
+  <p class="en">128-bit address space, built-in IPsec, no NAT (end-to-end), simplified header, better mobility &amp; auto-configuration, flow label for QoS.</p>
+</div>
+
+<div class="card">
+  <h2>3. 定位、RFID 与物联网 Location, RFID &amp; IoT</h2>
+  <h3>GPS vs 北斗 vs RFID（高频"场景选技术"题型）</h3>
+  <table>
+    <tr><th>技术</th><th>场景 Scenario</th><th>关键词</th></tr>
+    <tr><td>GPS</td><td>户外实时追踪车辆/人员（公交定位，真题 B5）</td><td>卫星三角测量 trilateration、户外、无需网络</td></tr>
+    <tr><td>BeiDou 北斗</td><td>中国卫星导航系统</td><td>独有：信号需先回传地面站再发给接收机（真题 A8）；另有 GEO 地球静止轨道卫星与短报文通信</td></tr>
+    <tr><td>RFID</td><td>包裹最后检查点、仓储、门禁、无人收费（真题 B4）</td><td>标签+读写器，近距、批量、无需 GPS</td></tr>
+    <tr><td>Cell-ID / A-GPS</td><td>室内或手机定位</td><td>基站定位精度低、A-GPS 快速定位</td></tr>
+  </table>
+  <h3>主动 vs 被动 RFID / Active vs Passive RFID</h3>
+  <table>
+    <tr><th></th><th>被动 Passive</th><th>主动 Active</th></tr>
+    <tr><td>电源 Power</td><td>无电池，靠读写器射频感应供电</td><td>自带电池</td></tr>
+    <tr><td>距离 Range</td><td>短（cm–几米）</td><td>长（可达百米）✔（A2）</td></tr>
+    <tr><td>成本 Cost</td><td>便宜 ✔</td><td>贵</td></tr>
+    <tr><td>附加功能</td><td>无</td><td>可加传感器 ✔（A2 答案 C）</td></tr>
+  </table>
+  <h3>被动 RFID 工作原理（真题 C2d 答题要点）</h3>
+  <p class="zh">① 读写器通过天线发射射频载波询查信号；② 标签天线接收能量，整流供电唤醒芯片；③ 标签将存储的 EPC/数据以反向散射调制（backscatter）发回；④ 读写器解码后传给后台系统处理；多标签用防碰撞算法（如 ALOHA）分时应答。</p>
+  <p class="en">Reader broadcasts RF inquiry → passive tag harvests energy, wakes chip → tag replies by backscatter modulation → reader decodes and passes data to backend; anti-collision (ALOHA) handles multiple tags.</p>
+  <h3>传感器 Sensors（真题 B1）</h3>
+  <p class="zh">压电效应 piezoelectric effect → <b>加速度计 accelerometer</b>（也用于陀螺仪类 MEMS 振动传感）。其他常考：GPS（位置）、电子罗盘 magnetometer（方向）、光敏、接近传感器。</p>
+</div>
+
+<div class="card">
+  <h2>4. 支付、供应链与新兴应用 Payment, SCM &amp; Applications</h2>
+  <h3>支付卡 / Smart Card vs Magnetic Stripe（真题 A6）</h3>
+  <p class="zh">正确说法：(i) 智能卡更安全 ✔、(ii) 磁条卡靠铁磁颗粒存储 ✔ → 答案 C。错误：智能卡数据不能被磁铁擦除（ EEPROM，非磁性存储）；智能卡需电源（由读卡器接触供电）；并非所有智能卡都内置电池。</p>
+  <h3>在线支付网关 Online Payment Gateway（真题 C4c 答题框架）</h3>
+  <p class="zh">画图要素：客户 → 商户网站 → <b>支付网关</b> → 收单行/银行卡网络（Visa/Master） → 发卡行。流程：① 顾客下单，加密（SSL/TLS）提交卡信息；② 网关验格式、防欺诈检测；③ 通过收单行转发至发卡行授权（3-D Secure 可选验证）；④ 授权结果回传商户，完成扣款结算（清算 settlement）。网关 = 商户与银行间的安全通道。</p>
+  <p class="en">Customer → merchant site → payment gateway → acquirer → card network → issuer bank; encrypted card data, fraud check, authorization, settlement. Gateway is the secure bridge between merchant and banking network.</p>
+  <h3>牛鞭效应 Bullwhip Effect（真题 C2b/c）</h3>
+  <p class="zh">定义：需求信息沿供应链上游传递时被逐级放大扭曲，导致库存波动加剧（3 分核心句）。成因：需求预测修正、批量订货、价格波动促销、博弈性短缺订货。</p>
+  <p class="zh">缓解技术（5 分）：① <b>EDI / API 实时共享销售数据（POS 直连）</b>减少信息延迟；② <b>CPFR 协同计划预测补货</b>；③ <b>RFID/条码</b>实时库存可见性；④ <b>VMI 供应商管理库存</b>；⑤ 电子商务平台直接连接降低中间层级。</p>
+  <h3>VR vs AR（真题 C1a）</h3>
+  <table>
+    <tr><th></th><th>VR 虚拟现实</th><th>AR 增强现实</th></tr>
+    <tr><td>环境</td><td>完全虚拟、沉浸式 fully immersive, synthetic</td><td>真实世界 + 虚拟叠加 real world + overlay</td></tr>
+    <tr><td>设备</td><td>HMD 头显、手柄（HTC Vive）</td><td>手机、轻量眼镜（Pokémon GO、Hololens）</td></tr>
+    <tr><td>感知</td><td>替代现实 replaces reality</td><td>增强现实 enhances reality</td></tr>
+    <tr><td>应用</td><td>游戏、培训、虚拟看房</td><td>导航、试妆/试穿、维修指引</td></tr>
+  </table>
+  <h3>病毒与安全事件 Viruses（真题 C3c 模板）</h3>
+  <p class="zh">以 WannaCry 为例：蠕虫型<b>勒索软件 ransomware</b>，利用 Windows SMB 漏洞（EternalBlue）自动传播，加密文件索要比特币赎金。预防：及时打补丁、关闭不必要的 SMB 端口、离线备份、防病毒软件、不点可疑附件、网络分段。答题时套用"病毒类型 + 传播机制 + 危害 + 防护措施"四段式。</p>
+</div>
+
+<div class="card">
+  <h2>常考英文术语对照 Glossary</h2>
+  <p>
+  <span class="tag">non-repudiation 不可否认性</span><span class="tag">integrity 完整性</span><span class="tag">authentication 认证</span><span class="tag">confidentiality 机密性</span><span class="tag">choke point 瓶颈点</span><span class="tag">co-channel interference 同频干扰</span><span class="tag">cell splitting 小区分裂</span><span class="tag">sectoring 扇区化</span><span class="tag">trilateration 三边测量</span><span class="tag">backscatter 反向散射</span><span class="tag">web-jacking 网站劫持</span><span class="tag">hash digest 摘要</span><span class="tag">CA 证书机构</span><span class="tag">digital signature 数字签名</span><span class="tag">bullwhip effect 牛鞭效应</span><span class="tag">payment gateway 支付网关</span><span class="tag">acquirer 收单行</span><span class="tag">issuer 发卡行</span><span class="tag">ransomware 勒索软件</span><span class="tag">evil twin 假冒热点</span><span class="tag">TDD 时分双工</span><span class="tag">smart antenna 智能天线</span><span class="tag">piezoelectric 压电</span><span class="tag">accelerometer 加速度计</span>
+  </p>
+</div>
+</section>
+
+<!-- ============ 2. 答疑 FAQ ============ -->
+<section id="t2">
+<div class="card">
+  <h2>高频答疑 FAQ / 常见疑问解答</h2>
+  <details open><summary>Q1：选择题里 (i)(ii)(iii) 组合题总是选错怎么办？<span class="en"> / How to handle combination MCQs?</span></summary>
+    <p class="model">逐条独立判断 True/False，再对照选项组合，不要整题"感觉"。注意干扰项常把对称/非对称、主动/被动 RFID 的特性互换。✔ 技巧：先找出明显错误的那一条（如"无需密钥"），排除含它的所有选项，通常只剩 1–2 个。</p></details>
+  <details><summary>Q2：Part B 简答题要写多长？<span class="en"> / How long should Part B answers be?</span></summary>
+    <p class="model">题目明确说 "a word or a phrase"——只写一个词或短语（如 RFID、Firewall、Hash function），写多了不加分还浪费时间。考的是"场景→技术"的条件反射，见知识板块第 3 节的映射表。</p></details>
+  <details><summary>Q3：Part C 大题怎么拿满结构分？<span class="en"> / How to score in Part C?</span></summary>
+    <p class="model">① 题目要求 diagram 就一定要画图（PKI、支付网关、RFID），图中标注主角与箭头方向；② 分点作答 (a)(b)(c) 对应小问分值；③ 定义题先一句话定义再展开；④ 遇到没学过的新技术（如 WannaCry），套用通用知识框架回答，展示"知识更新能力"可拿 bonus。</p></details>
+  <details><summary>Q4：对称加密更快，为什么还要非对称加密？<span class="en"> / Why asymmetric if symmetric is faster?</span></summary>
+    <p class="model">因为对称加密的致命问题是密钥分发（怎么安全地把密钥给对方？）和无法实现数字签名/不可否认。所以实际系统（TLS）用非对称交换会话密钥，再用对称加密传输数据——各取所长。</p></details>
+  <details><summary>Q5：GPS、北斗、RFID、Cell-ID 到底怎么选？<span class="en"> / Which positioning tech when?</span></summary>
+    <p class="model">户外实时连续追踪车辆→GPS；中国卫星导航+短报文+信号经地面站中转→北斗；仓库/包裹/物品级识别追踪→RFID；室内低精度、只要手机不装额外硬件→Cell-ID/基站定位；要快又准→A-GPS。</p></details>
+  <details><summary>Q6：Bullwhip effect 答题的标准句式？<span class="en"> / Standard phrasing?</span></summary>
+    <p class="model">定义（3 分）："The variability of orders/demand is amplified as it moves upstream in the supply chain, causing increasing inventory swings from retailer→wholesaler→manufacturer." 缓解（5 分）必须写"技术 + 如何缓解"：EDI 共享 POS 实时数据（减少信息失真与延迟）、RFID 提供库存可见性、CPFR/VMI 协同机制。</p></details>
+  <details><summary>Q7：还有哪些可能的考点这次真题没考？<span class="en"> / Other likely topics?</span></summary>
+    <p class="model">按 ELEC6098 大纲，历年还考过：电子商务模式（B2B/B2C/C2C）、电子现金/电子钱包/微支付、SET 协议、移动商务 LBS 应用、蓝牙/ZigBee/NFC 比较、4G/5G 特性、CRM/ERP、网络营销、区块链与加密货币、伦理与隐私。复习优先级：安全（每年必考）> 定位技术 > 支付 > 供应链 > 新兴应用。</p></details>
+</div>
+</section>
+
+<!-- ============ 3. MCQ ============ -->
+<section id="t3">
+<div class="card">
+  <h2>Part A 选择题练习 MCQ Practice（May 2017 真题）</h2>
+  <p class="en">Click an option, then press "Check" for each question, or grade all at the end.</p>
+  <div id="mcqs"></div>
+  <button class="btn" onclick="gradeAll()">交卷评分 Grade All</button>
+  <button class="btn ghost" onclick="resetMCQ()">重做 Reset</button>
+  <p class="score" id="score"></p>
+</div>
+</section>
+
+<!-- ============ 4. Short answer ============ -->
+<section id="t4">
+<div class="card">
+  <h2>Part B 简答题自测 Short Answer Practice（一词/短语作答）</h2>
+  <p class="en">Type your answer, then reveal the reference answer. 3 marks each.</p>
+  <div id="shortqs"></div>
+</div>
+</section>
+
+<!-- ============ 5. Essays ============ -->
+<section id="t5">
+<div class="card">
+  <h2>Part C 论述题 + 模板答案 Essay Questions with Model Answers</h2>
+  <div id="essays"></div>
+</div>
+</section>
+
+<!-- ============ 6. 课程讲义 ============ -->
+<section id="t6">
+<div class="card">
+  <h2>📌 2026 学年考核方式 Assessment（来自 Ch-1 课件第 3-4 页）</h2>
+  <ul style="font-size:.92rem;padding-left:20px">
+    <li><b>30% Assignment</b>：小组商业计划书 Group business plan（3-4 人一组，e-/m-commerce 创业种子基金申请，按 Cyberport CCMF / HKSTP ideation 模板）+ 5 分钟路演视频</li>
+    <li><b>70% Final Exam（12 月）</b>：题型为 <b>选择题 + 简答题 multiple choices &amp; short questions</b> —— 注意：2026 年期末<b>没有论述大题</b>（Part C 题型仅作知识点参考），复习重心放在 MCQ 判断题和 Part B 场景题！</li>
+  </ul>
+</div>
+
+<div class="card">
+  <h2>Chapter 1 · Introduction &amp; B2C（intro and B2C -2026.pdf，71 页）</h2>
+  <ul style="font-size:.9rem;padding-left:20px">
+    <li><b>驱动电子商务的 3 大力量 3 main forces</b>：① Economic forces 经济力量（降低成本 cost reduction）② Marketing &amp; Customer Interaction forces 营销与客户互动（线上展示、分享更多产品信息）③ Technology &amp; Digital Convergence forces 技术与数字融合（行业融合，如 Apple 卖 iBook、Amazon 卖 Kindle、PayPal 电子交易）。<b>Climate forces 是干扰项</b>。</li>
+    <li><b>概念性资源 Conceptual resources</b> = People、Data（非 Material/Money 实物资源）。</li>
+    <li><b>电商对价值链的好处</b>：Enabling B2B/B2C、自动化信息流 automating information flow（"Lacking customer interaction" 是干扰项）。</li>
+    <li><b>创收 Revenue vs 省成本 Cut cost</b>：Content delivery / Information service / LBS / M-banking 多为创收；<b>Mobile ticketing 移动票务</b>是典型省成本项。</li>
+    <li><b>LBS 例子</b>：QR 码过闸、Foodpanda 推荐附近餐厅（Netflix 区域版权、Steam DLC 不是 LBS）。</li>
+    <li><b>反向拍卖 Reverse auction</b>：买家出价 Buyer bids the price。</li>
+    <li>电商演进、EDI、客户支持新渠道、GenAI 带来的新机会。</li>
+  </ul>
+</div>
+
+<div class="card">
+  <h2>Chapter 2 · B2B &amp; RFID（原 PDF 加密，以下要点来自 Kahoot 官方题库）</h2>
+  <ul style="font-size:.9rem;padding-left:20px">
+    <li><b>牛鞭效应 Bullwhip Effect</b>：消费者需求小变化 → 上游订单大波动（注意方向：向零售端移动时需求变化性<b>减小</b>）；可用 RFID 和<b>共享信息</b>缓解；不共享信息时累积效应是<b>相乘 multiplicative</b> 的；最重要的共享信息是 <b>销售数据 sales data</b>。</li>
+    <li><b>外包订单履行 Outsourced order fulfillment</b> 提供的关键服务：仓储 storage、包装配送 packing &amp; delivery、库存管理 inventory management、订单追踪 order tracking、客服处理。<b>不做</b>：产品制造、定制软件开发、员工招聘。</li>
+    <li><b>EDI 优点</b>：减少人工与纸张、降低单据处理成本；<b>不是</b>优点："比传统方法增加处理时间"、"对纸质单据也提升效率"。</li>
+    <li><b>主动 RFID 标签优点</b>：读取距离长、可加传感器（成本更高、要换电池——非优点）。</li>
+  </ul>
+</div>
+
+<div class="card">
+  <h2>Chapter 3 · Enabling Technologies（Enabling Technologies 2025.pdf，90 页）</h2>
+  <ul style="font-size:.9rem;padding-left:20px">
+    <li><b>加速度计 Accelerometer</b>：阻尼质量块+弹簧模型，测加速度的大小与方向 → 姿态 orientation、振动 shock、跌落检测；手机自动横竖屏、Wii 手柄、相机防抖、硬盘跌落保护、ACN 碰撞自动呼救。</li>
+    <li><b>陀螺仪 Gyroscope</b>：高速转子角动量+角动量守恒，测旋转/角速度。<b>压电效应 piezoelectric 把压力转成电信号</b>；Draper 音叉陀螺 vs 压电陀螺：前者不受温度影响、灵敏度更高。</li>
+    <li>⭐ 判断题陷阱：<b>匀速圆周运动加速度计测不到、陀螺仪测得到</b>；陀螺仪才基于角动量守恒；两者<b>结合</b>测姿态（惯性导航 Inertial Navigation：无需 GPS，从最后已知位置推算）。</li>
+    <li><b>隧道里追踪车辆位置用什么？→ 加速度计（惯性导航）</b>（GPS 隧道无信号）。</li>
+    <li><b>场景选技术</b>：跟踪包裹 → RFID；跟踪救护车 → GPS；Apple Pay 用到的技术 → NFC + 生物识别 Biometric。</li>
+    <li><b>AR 是 exterior view（从内向外看）</b>，VR 是沉浸式向内看。</li>
+    <li><b>LBS 应用</b>：紧急呼叫、目标广告、好友列表、交通天气、包裹/火车车厢追踪。</li>
+  </ul>
+</div>
+
+<div class="card">
+  <h2>Chapter 4 · Data Security（原 PDF 加密，以下要点来自 Kahoot 官方题库）</h2>
+  <ul style="font-size:.9rem;padding-left:20px">
+    <li><b>DDoS</b>：目标是<b>压垮服务破坏可用性 overwhelm availability</b>（不是偷数据）；"大量请求使服务器过载" → DDoS。</li>
+    <li><b>Phishing 钓鱼</b>：诱骗个人泄露信息。</li>
+    <li><b>Web-jacking 网站劫持</b>：把用户<b>重定向到恶意站点</b>/内容被篡改。</li>
+    <li><b>Server break-ins</b>：利用漏洞非法入侵获取权限。</li>
+    <li><b>Cookies</b>：存储用户偏好与会话信息。</li>
+    <li><b>主动内容 Active content</b>：视频/动画等交互元素，可触发自动行为（静态图文不算）。</li>
+  </ul>
+</div>
+
+<div class="card">
+  <h2>Chapter 5 · Mobile Payment（原 PDF 加密，以下要点来自 Kahoot 官方题库）</h2>
+  <ul style="font-size:.9rem;padding-left:20px">
+    <li><b>智能卡 vs 磁条卡</b>：智能卡更安全✔、磁条卡靠铁磁颗粒存数据✔；智能卡数据不能被磁铁擦除、两种卡都需要电源。</li>
+    <li><b>手机 NFC 读八达通余额 → Reader/writer mode 读写器模式</b>（不是卡模拟 Card emulation——那是手机当卡刷）。</li>
+    <li>⭐ <b>在线支付信息流（必背）</b>：EShop → Payment Gateway → EShop's Bank（收单） → Issuing Bank（发卡） → 原路返回 Payment Gateway → EShop。</li>
+    <li><b>在线支付流程包含</b>：Authorization 授权、Merchant identity verification 商户身份验证、Payment gateway verification、User identity verification。</li>
+    <li><b>移动签名 Mobile signature</b>：在 <b>SIM 卡上用用户私钥生成</b>的数字签名；待签文本经<b>安全连接送到 SIM 卡</b>；用户需输入 <b>PIN 码</b>。</li>
+  </ul>
+</div>
+
+<div class="card">
+  <h2>Part 2 · Cloud / Big Data / AI（Dr. Victor Ng 4 讲）</h2>
+  <ul style="font-size:.9rem;padding-left:20px">
+    <li><b>云计算（NIST 定义）</b>：3 服务模型 + 4 部署模型 + 5 本质特征。
+      <br><b>5 大特征</b>：① On-demand self-service 按需自助 ② Broad network access 广泛网络接入 ③ Resource pooling 资源池化（多租户 multi-tenant）④ Rapid elasticity 快速弹性 ⑤ Measured service 可计量服务。
+      <br><b>3 服务模型</b>：SaaS（用应用，如 web 邮箱）/ PaaS（部署自己的应用，用提供商的语言和工具）/ IaaS（租算力/存储/网络，自己装 OS 和应用）。
+      <br><b>4 部署模型</b>：Public / Private / Hybrid / Community cloud。</li>
+    <li><b>Big Data</b>（原 PDF 加密）：5V 特征（Volume/Velocity/Variety/Veracity/Value）、Hadoop/MapReduce、大数据在电商推荐与精准营销中的应用。</li>
+    <li><b>AI</b>：<b>功能视角</b> Reactive → Limited memory → Theory of mind → Self-awareness；<b>能力视角</b> Narrow → General → Super intelligence；机器学习三型：Supervised 监督 / Unsupervised 无监督 / Reinforcement 强化；AI 伦理（案例 Lavender）。</li>
+  </ul>
+</div>
+
+<div class="card">
+  <h2>📁 课程文件清单 Downloads（已保存到本地 elec6098/course/）</h2>
+  <p class="zh" style="font-size:.88rem">17 个文件全部已下载到工作区 <code>elec6098/course/</code>：Ch1/Ch3 讲义 PDF、Ch2/Ch4/Ch5/BigData 四份为<b>教师加密 PDF（需要打开密码）</b>、全部 Kahoot 题、Group Project 资料、2017 真题。Zoom 录播链接与 Kahoot 自测链接存于 <code>_zoom_links.json</code>（需登录 Moodle 打开）。</p>
+</div>
+</section>
+
+<!-- ============ 7. Kahoot ============ -->
+<section id="t7">
+<div class="card">
+  <h2>🎯 Kahoot 课程题库（按章节，来自 Moodle 官方练习）</h2>
+  <p class="en">Questions curated from the teacher's Kahoot sets (Ch1-Ch5). Click to answer &amp; check.</p>
+  <div id="kahoots"></div>
+  <button class="btn" onclick="gradeKahoot()">评分 Grade</button>
+  <p class="score" id="kscore"></p>
+</div>
+</section>
+
+</main>
+<footer>ELEC6098 Electronic Commerce and Mobile Commerce · Review site generated from May 2017 past paper (with answers) · 仅供个人复习</footer>
+
+<script>
+const MCQ=[
+ {q:{en:"What is/are the advantage(s) of symmetric key encryption?",zh:"对称密钥加密的优点是？"},
+  opts:["All of the above","(i) and (ii) only","(i) only","(ii) and (iii) only","(i) and (iii) only"],
+  stmts:{en:["(i) Knowing the algorithm is not enough to decode the message","(ii) No key is required","(iii) It is faster than asymmetric key encryption","(iv) No need to distribute the secret key"],zh:["(i) 只知道算法不足以解密消息","(ii) 无需密钥","(iii) 比非对称加密系统更快","(iv) 无需把密钥从发送方分发到接收方"]},
+  ans:4,ex:{zh:"对称加密仍需要密钥且必须分发（(ii)(iv) 错），但它快、且安全性基于密钥而非算法保密（Kerckhoffs 原则）→ (i)(iii) 对。",en:"Symmetric crypto still needs a shared key that must be distributed ((ii),(iv) false). It is fast, and security relies on key secrecy, not algorithm secrecy → (i),(iii)."}},
+ {q:{en:"What is/are the advantage(s) of using active RFID tags?",zh:"使用主动式 RFID 标签的优点是？"},
+  opts:["(i) only","(i) and (ii) only","(ii) and (iii) only","(i), (ii) and (iv) only","All of the above"],
+  stmts:{en:["(i) Cheaper cost","(ii) Longer reading range","(iii) Sensors can be added","(iv) No battery replacement needed"],zh:["(i) 成本更低","(ii) 读取距离更长","(iii) 可以加传感器","(iv) 无需更换电池"]},
+  ans:2,ex:{zh:"主动标签自带电池 → 贵、且电池要换（(i)(iv) 错）；好处是距离远、可带传感器 → (ii)(iii)。",en:"Active tags have their own battery → more expensive and batteries DO need replacement. Benefits: long range and sensors."}},
+ {q:{en:"Which of the following is/are functions of a firewall?",zh:"哪些是防火墙的功能？"},
+  opts:["(i) and (ii) only","(i), (ii) and (iii) only","(i), (ii) and (iv) only","(ii) and (iv) only","All of the above"],
+  stmts:{en:["(i) Filters IP packets by source/destination address to restrict access","(ii) Protects multiple servers as a choke point","(iii) Backs up files in the server","(iv) Limits local users accessing external systems"],zh:["(i) 按源/目的地址过滤 IP 包限制访问","(ii) 作为瓶颈点保护多台服务器","(iii) 备份服务器文件","(iv) 限制本地用户访问外部系统"]},
+  ans:2,ex:{zh:"防火墙不做备份（(iii) 错）。过滤包、瓶颈点、限制外访都是。",en:"Firewalls do not back up files. Packet filtering, choke point, restricting outbound access are all functions."}},
+ {q:{en:"Which of the following is/are problem(s) of biometrics authentication?",zh:"生物识别认证存在的问题是？"},
+  opts:["(i) and (ii) only","(i), (ii) and (iii) only","(i), (ii) and (iv) only","(ii), (iii) and (iv) only","All of the above"],
+  stmts:{en:["(i) Vulnerable to replay attack","(ii) User resistance and privacy issues","(iii) Large database required","(iv) Vulnerable to man-in-the-middle attack"],zh:["(i) 易受重放攻击","(ii) 用户抵触与隐私问题","(iii) 需要大型数据库","(iv) 易受中间人攻击"]},
+  ans:1,ex:{zh:"标准答案 B：(i)(ii)(iii)。生物特征不可换、模板库庞大、隐私顾虑是主要问题。",en:"Ans B: replay attacks, user resistance/privacy, large template databases."}},
+ {q:{en:"GSM: if the number of frequency channels (cluster size) increases from 4 to 7, which are correct?",zh:"GSM 频率复用簇从 4 增到 7，哪些正确？"},
+  opts:["(i) and (ii) only","(ii) and (iii) only","(i) and (iv) only","(i), (ii) and (iv) only","All of the above"],
+  stmts:{en:["(i) Reduce co-channel interference","(ii) Increase signal to noise ratio","(iii) Require less frequency spectrum","(iv) More accurate location estimation"],zh:["(i) 降低同频干扰","(ii) 提高信噪比","(iii) 需要更少的频谱","(iv) 定位更精确"]},
+  ans:3,ex:{zh:"复用距离变大 → 同频干扰↓、SNR↑；小区更多 → 定位更准。但需要<b>更多</b>频谱（(iii) 反了）。",en:"Larger reuse distance → less co-channel interference, better SNR; more cells → better location accuracy. But it needs MORE spectrum, not less."}},
+ {q:{en:"Smart card vs magnetic stripe card — which statements are correct?",zh:"智能卡与磁条卡比较，哪些正确？"},
+  opts:["(i) only","(ii) and (v) only","(i) and (ii) only","(i), (ii) and (iii) only","(i), (ii) and (v) only"],
+  stmts:{en:["(i) Smart card is more secure","(ii) Magnetic stripe stores data via tiny iron particles' magnetism","(iii) Smart card data can be erased by magnet","(iv) Both cards need no power to operate","(v) Smart card contains CPU, memory and battery"],zh:["(i) 智能卡更安全","(ii) 磁条卡靠铁磁颗粒存储","(iii) 智能卡数据可被磁铁擦除","(iv) 两种卡都无需电源","(v) 智能卡内有 CPU、内存和电池"]},
+  ans:2,ex:{zh:"智能卡用 EEPROM（非磁性），磁铁擦不掉（(iii) 错）；智能卡芯片需电源（由读卡器提供）且通常无内置电池（(iv)(v) 错）。",en:"Smart cards use EEPROM — not erasable by magnet; they need power from the reader and typically have no internal battery."}},
+ {q:{en:"How to reduce encryption/decryption time for a large file while keeping privacy, authentication & non-repudiation?",zh:"传大文件时如何在保持机密性、认证、不可否认的前提下缩短加解密时间？"},
+  opts:["(i) and (ii) only","(ii) and (iv) only","(ii), (iv) and (v) only","(ii), (iii) and (iv) only","All of the above"],
+  stmts:{en:["(i) Use symmetric key encryption","(ii) Use hash function","(iii) Increase channel bandwidth","(iv) Increase processing time of device","(v) Use firewall"],zh:["(i) 用对称加密","(ii) 用哈希函数","(iii) 提高信道带宽","(iv) 增加设备处理时间","(v) 用防火墙"]},
+  ans:0,ex:{zh:"混合方案：对称加密大数据（快）+ 哈希做摘要（签名/完整性）。带宽、防火墙不减少加解密计算时间。",en:"Hybrid scheme: symmetric encryption for bulk data (fast) + hash for digest/signature. Bandwidth and firewalls don't reduce crypto computation time."}},
+ {q:{en:"Which is unique in the BeiDou Navigation Satellite System?",zh:"北斗导航系统中独有的是？"},
+  opts:["(i) only","(ii) only","(i) and (ii) only","(ii) and (iii) only","All of the above"],
+  stmts:{en:["(i) Triangulation is used to detect position","(ii) Signals are sent back to a ground station before reaching the receiver","(iii) There are geostationary orbit satellites"],zh:["(i) 用三角测量定位","(ii) 信号需先回传地面站再发给接收机","(iii) 有地球静止轨道卫星"]},
+  ans:1,ex:{zh:"标准答案 B：北斗采用双向通信，信号经地面站中转（也因此支持短报文）。三角测量是所有 GNSS 通用原理。",en:"Ans B: BeiDou's signals go through ground stations (enabling its unique short-message service). Triangulation is common to all GNSS."}}
+];
+const SHORT=[
+ {q:{en:"Piezoelectric effect is applied in what sensor in a smartphone?",zh:"压电效应用于手机里的哪种传感器？"},a:"Accelerometer 加速度计"},
+ {q:{en:"Name of the security risk when a website is redirected or content modified?",zh:"网站被重定向/内容被篡改的安全风险叫什么？"},a:"Web-jacking 网站劫持"},
+ {q:{en:"What function turns a long message into a digest?",zh:"把长消息变成摘要的函数是？"},a:"Hash function 哈希函数"},
+ {q:{en:"A courier tracks the last check-point location of parcels — best technology?",zh:"快递公司追踪包裹最后检查点——最合适的技术？"},a:"RFID"},
+ {q:{en:"A bus company tracks buses' real-time location — best technology?",zh:"公交公司实时跟踪公交位置——最合适的技术？"},a:"GPS"},
+ {q:{en:"Device to filter IP packets and restrict local users' external access?",zh:"过滤 IP 包并限制本地用户外访的设备？"},a:"Firewall 防火墙"},
+ {q:{en:"Unique feature of TD-SCDMA (1 of 2)?",zh:"TD-SCDMA 特色之一？"},a:"TDD 时分双工 / Smart antenna 智能天线 / 同步CDMA（任一）"},
+ {q:{en:"Unique feature of TD-SCDMA (2 of 2)?",zh:"TD-SCDMA 特色之二？"},a:"任选另一条（TDD / 智能天线 / 同步CDMA / 中国自主标准）"},
+ {q:{en:"Method to improve cellular capacity (1 of 2)?",zh:"提高蜂窝网络容量方法之一？"},a:"Adding new channels 新增信道 / Cell splitting 小区分裂"},
+ {q:{en:"Method to improve cellular capacity (2 of 2)?",zh:"提高蜂窝网络容量方法之二？"},a:"Cell sectoring 扇区化 / Microcells 微小区（任一）"}
+];
+const ESSAYS=[
+ {t:"C1 · 2FA & VR/AR 双因素认证与虚拟现实",
+  qs:["a) Differences between VR and AR? (5m)","b) What is two-factor authentication? (5m)","c) Two ways to implement 2FA (8m)"],
+  zh:"a) 见知识表：VR 完全沉浸替代现实，AR 真实场景叠加虚拟信息；设备、应用各举 1–2 例。<br>b) 定义：认证时要求提供<b>两种不同类别</b>的凭证（知识/持有/生物），单一凭证泄露不足以攻破账户，大幅提升安全性。<br>c) ①密码 + 手机短信/邮件验证码 OTP；②密码 + TOTP 动态令牌（Google Authenticator）；③ATM：银行卡（持有）+ PIN（知识）；④密码 + 生物特征（指纹/面容）；⑤密码 + U2F/FIDO 安全钥匙。每种说明是哪两类因素的组合。",
+  en:"a) See knowledge table: VR replaces reality (fully immersive HMD), AR overlays on real world (phone/glasses). b) Requiring two credentials from different categories (knowledge / possession / inherence). c) Password+SMS OTP, Password+TOTP authenticator, ATM card+PIN, password+fingerprint, password+U2F key."},
+ {t:"C2 · IPv6, Bullwhip Effect & RFID",
+  qs:["a) Advantages of IPv6 over IPv4? (5m)","b) What is bullwhip effect? (3m)","c) Technologies to reduce it, and how? (5m)","d) Operation of a passive RFID system (5m)"],
+  zh:"a) 128位地址几乎无限；内置 IPsec；无需 NAT 端到端；简化头部路由更快；自动配置 SLAAC；更好的移动性支持。<br>b) 订单波动沿供应链上游（零售→批发→制造）逐级放大的现象，导致库存与成本震荡。<br>c) EDI/API 实时共享 POS 销售数据（消除信息延迟失真）；RFID/条码实时库存可见；CPFR 协同预测补货；VMI 供应商管理库存。<br>d) 读写器发射频询查 → 无源标签感应取能唤醒 → 反向散射调制回传 EPC 数据 → 读写器解码送后台；防碰撞算法支持多标签。配图：Reader ⇄ antenna ⇄ Tag → Backend。",
+  en:"a) 128-bit addresses, built-in IPsec, no NAT, simpler header, auto-configuration, mobility. b) Order variability amplified upstream causing inventory swings. c) EDI sharing POS data, RFID inventory visibility, CPFR, VMI. d) Reader interrogates → passive tag harvests energy → backscatters its ID → reader decodes → backend; anti-collision for multiple tags."},
+ {t:"C3 · PKI 与勒索病毒",
+  qs:["a) David sends a confidential message to Ann using PKI — with diagram (5m)","b) Ann replies a signed message using PKI — with diagram (5m)","c) The WannaCrypt virus: what is it and how to prevent infection? (8m)"],
+  zh:"a) 图示：David 明文+会话密钥 → 用 <b>Ann 的公钥</b>加密 → 密文过互联网 → Ann 用自己的<b>私钥</b>解密。只有 Ann 能解，保证机密性。<br>b) 图示：Ann 对消息取哈希 → 用 <b>Ann 的私钥</b>加密哈希（数字签名）→ 连同消息发给 David → David 用 <b>Ann 的公钥</b>解密哈希并与收到的消息哈希比对，一致则认证成功且不可否认。<br>c) WannaCry = 蠕虫式勒索软件，利用 Windows SMB 漏洞 EternalBlue 自动传播，AES+RSA 加密文件勒索比特币。预防：及时安装系统补丁、关闭 445 等端口、定期离线备份（3-2-1 原则）、终端防病毒/EDR、安全意识（不点附件）、网络分段 limiting lateral movement。",
+  en:"a) Encrypt with Ann's PUBLIC key; only Ann's private key decrypts → confidentiality. b) Ann signs the message hash with her PRIVATE key; David verifies with her public key → authentication + non-repudiation. c) Worm ransomware exploiting SMB (EternalBlue); patch systems, close ports, offline backups, antivirus, awareness, network segmentation."},
+ {t:"C4 · WiFi 安全与支付网关",
+  qs:["a) Security risks of using WiFi for m-commerce (6m)","b) How to minimize WiFi risks (6m)","c) Operation of an online payment gateway, with diagram (6m)"],
+  zh:"a) 开放信道窃听、假冒 AP（evil twin）、中间人攻击、弱加密（WEP 可分钟级破解）、未授权接入/带宽盗用、会话劫持、ARP 欺骗。<br>b) WPA3/WPA2-AES 且禁用 WEP/WPS、强密码定期更换、关闭 SSID 广播+MAC 过滤、VPN/HTTPS 端到端加密、802.1X 企业认证、IDS 监控。<br>c) 图示：Customer → Merchant → Payment Gateway → Acquirer 收单行 → Card Network → Issuer 发卡行。流程：加密提交卡信息 → 网关做格式校验与反欺诈 → 转发授权请求 → 发卡行验证余额并授权 → 结果回传 → 清算结算。",
+  en:"a) Eavesdropping, evil twin APs, MITM, weak WEP/WPS, rogue access, session hijacking. b) WPA3, strong keys, hide SSID/MAC filter, VPN/HTTPS, 802.1X, IDS. c) Customer→Merchant→Gateway→Acquirer→Network→Issuer; encrypted submission, fraud screening, authorization, settlement."}
+];
+
+// render MCQ
+const box=document.getElementById('mcqs');
+MCQ.forEach((m,i)=>{
+  const d=document.createElement('div');d.className='q';d.id='mcq'+i;
+  let s='<div class="stem">A'+(i+1)+') '+m.q.zh+'<br><span class="en">'+m.q.en+'</span></div>';
+  s+='<div style="font-size:.85rem;color:var(--muted);margin-bottom:6px">'+m.stmts.zh.join('<br>')+'<br><span class="en">'+m.stmts.en.join('<br>')+'</span></div><div class="opts">';
+  m.opts.forEach((o,j)=>{s+='<label data-q="'+i+'" data-j="'+j+'">'+String.fromCharCode(65+j)+') '+o+'</label>'});
+  s+='</div><button class="btn ghost" onclick="checkOne('+i+')">核对 Check</button><div class="expl" id="ex'+i+'"><b>答案 Ans: '+String.fromCharCode(65+m.ans)+'</b> · '+m.ex.zh+'<br><span class="en">'+m.ex.en+'</span></div>';
+  d.innerHTML=s;box.appendChild(d);
+});
+box.addEventListener('click',e=>{
+  const l=e.target.closest('label');if(!l)return;
+  document.querySelectorAll('label[data-q="'+l.dataset.q+'"]').forEach(x=>x.classList.remove('sel'));
+  l.classList.add('sel');
+});
+function checkOne(i){reveal(i)}
+function reveal(i){
+  const sel=document.querySelector('label[data-q="'+i+'"].sel');
+  document.querySelectorAll('label[data-q="'+i+'"]').forEach(l=>{
+    if(+l.dataset.j===MCQ[i].ans)l.classList.add('correct');
+    else if(l===sel)l.classList.add('wrong');
+  });
+  document.getElementById('ex'+i).classList.add('show');
+}
+function gradeAll(){
+  let right=0,answered=0;
+  MCQ.forEach((m,i)=>{
+    const sel=document.querySelector('label[data-q="'+i+'"].sel');
+    if(sel)answered++;
+    if(sel&&+sel.dataset.j===m.ans)right++;
+    reveal(i);
+  });
+  document.getElementById('score').textContent='得分 Score: '+right+' / '+MCQ.length+'（已作答 '+answered+' 题）— 每题 2 分，真题满分 16 分';
+}
+function resetMCQ(){
+  document.querySelectorAll('#mcqs label').forEach(l=>l.classList.remove('sel','correct','wrong'));
+  document.querySelectorAll('#mcqs .expl').forEach(e=>e.classList.remove('show'));
+  document.getElementById('score').textContent='';
+}
+// short answers
+const sbox=document.getElementById('shortqs');
+SHORT.forEach((s,i)=>{
+  const d=document.createElement('div');d.className='q';
+  d.innerHTML='<div class="stem">B'+(i+1)+') '+s.q.zh+'<br><span class="en">'+s.q.en+'</span></div><input placeholder="你的答案 Your answer..."><button class="btn ghost" onclick="this.nextElementSibling.open=true">看答案 Show Answer</button><details><summary>参考答案 Reference Answer</summary><p class="model"><b>'+s.a+'</b></p></details>';
+  sbox.appendChild(d);
+});
+// essays
+const ebox=document.getElementById('essays');
+ESSAYS.forEach((e,i)=>{
+  const d=document.createElement('div');d.className='q';
+  d.innerHTML='<div class="stem">'+e.t+'</div>'+e.qs.map(q=>'<div class="en" style="color:#c3cbff">'+q+'</div>').join('')+'<button class="btn ghost" onclick="this.nextElementSibling.open=true">展开模板答案 Model Answer</button><details><summary>中文要点 + English Key Points</summary><p class="model zh">'+e.zh+'</p><p class="model en" style="color:var(--muted)">'+e.en+'</p></details>';
+  ebox.appendChild(d);
+});
+// Kahoot bank (correct answers inferred from lecture content)
+const KAHOOT=[
+ {c:"Ch1",q:"What are the 3 main forces fuelling interest in e-commerce?",zh:"驱动电子商务的三大力量是？",opts:["Economic forces","Marketing and Customer Interaction forces","Technology and Digital Convergence forces","Climate forces"],ans:[0,1,2],ex:"三大力量：经济、营销与客户互动、技术与数字融合。气候是干扰项。"},
+ {c:"Ch1",q:"Which can be categorized under ECONOMIC forces?",zh:"哪项属于经济力量？",opts:["Cost reduction","Creating online presence","Connects industries together","Gathering information"],ans:[0],ex:"经济力量=降本增效；线上展示属营销力量，行业融合属技术力量。"},
+ {c:"Ch1",q:"Which can be categorized under TECHNOLOGY and DIGITAL CONVERGENCE?",zh:"哪项属于技术与数字融合？",opts:["Posting advertisement online","Apple selling iBook","Amazon selling Kindle","PayPal enabling e-transaction"],ans:[1,2,3],ex:"行业跨界融合（科技公司卖书/电子书/做支付）属于技术与数字融合；在线贴广告属营销。"},
+ {c:"Ch1",q:"Which of the following are CONCEPTUAL resources?",zh:"哪些是概念性资源？",opts:["People","Material","Data","Money"],ans:[0,2],ex:"概念性资源=People+Data；Material/Money 是实物资源。"},
+ {c:"Ch1",q:"Which helps to GENERATE REVENUE for e-commerce?",zh:"哪项帮电商创收？",opts:["Content delivery","Information service","Location-based services","M-banking"],ans:[0,1,2,3],ex:"以上都是创收渠道。"},
+ {c:"Ch1",q:"Which helps to CUT COST in e-commerce?",zh:"哪项帮电商省成本？",opts:["Content delivery","Information service","Mobile ticketing","M-banking"],ans:[2],ex:"移动票务省去实体票印刷配送=省成本。"},
+ {c:"Ch1",q:"Examples of location-based services?",zh:"哪些是位置服务例子？",opts:["QR code for boarding train","Foodpanda recommending nearby restaurants","DLC on Steam","Netflix available in certain countries"],ans:[0,1],ex:"LBS 与地理位置相关；Steam DLC 和 Netflix 区域版权与用户位置无关。"},
+ {c:"Ch2",q:"Which is/are correct about the Bullwhip Effect?",zh:"关于牛鞭效应哪些正确？",opts:["Demand variability increases towards the retailer side","Small change in consumer demand causes large variations upstream","Can be reduced by RFID","Can be reduced by sharing information along the supply chain"],ans:[1,2,3],ex:"变化向上游放大（向零售端是减小）；RFID 与信息共享都能缓解。"},
+ {c:"Ch2",q:"Key services offered by outsourced order fulfillment?",zh:"外包订单履行的关键服务？",opts:["Storage of goods","Product manufacturing","Custom software development","Packing and delivery"],ans:[0,3],ex:"仓储+包装配送（还有库存管理/追踪/客服）；不做制造和软件开发。"},
+ {c:"Ch2",q:"Which is NOT an advantage of EDI?",zh:"哪项不是 EDI 的优点？",opts:["Reduces human interaction and paper use","Increases processing time vs traditional methods","Lowers handling costs","Improves efficiency even with paper documents"],ans:[1,3],ex:"EDI 更快而非更慢；它针对电子单据，对纸质单据无提升。"},
+ {c:"Ch2",q:"The cumulative bullwhip effect is multiplicative when…",zh:"累积效应相乘放大的条件是？",opts:["Information is shared","Information is NOT shared"],ans:[1],ex:"不共享信息时误差逐级相乘放大。"},
+ {c:"Ch2",q:"Most important information to share to reduce bullwhip effect?",zh:"缓解牛鞭效应最该共享的信息？",opts:["Order status","Demand forecast","Sales data","Supply chain constraints"],ans:[2],ex:"共享真实销售数据（POS）最关键，让上游看到真实需求。"},
+ {c:"Ch3",q:"Technologies used by Apple Pay on iPhone?",zh:"Apple Pay 用到的技术？",opts:["RFID","NFC","Biometric","Accelerometer"],ans:[1,2],ex:"NFC 近场通信 + 指纹/面容生物识别。"},
+ {c:"Ch3",q:"Track a vehicle's position inside a tunnel?",zh:"隧道内追踪车辆位置？",opts:["GPS","WiFi","GSM","Accelerometer"],ans:[3],ex:"隧道无 GPS 信号 → 惯性导航（加速度计推算）。"},
+ {c:"Ch3",q:"Which is an EXTERIOR view (from inside outward)?",zh:"哪项是从内向外的 exterior view？",opts:["Augmented Reality","Virtual Reality","3D object capture","Hologram"],ans:[0],ex:"AR 透过屏幕看真实世界叠加虚拟信息=exterior view；VR 是封闭沉浸。"},
+ {c:"Ch3",q:"Which statements are correct?",zh:"哪些说法正确？",opts:["Accelerometer detects circular motion at constant velocity","Gyroscope detects circular motion at constant velocity","Both used together to measure orientation","Accelerometer works by conservation of angular momentum"],ans:[1,2],ex:"匀速圆周运动只有角速度无线加速度→陀螺仪可测、加速度计不可；角动量守恒是陀螺仪原理。"},
+ {c:"Ch3",q:"Most cost-effective way to track a parcel?",zh:"追踪包裹最划算的技术？",opts:["GPS","Mobile phone LBS","RFID","Bluetooth"],ans:[2],ex:"物品级追踪 RFID 最便宜。"},
+ {c:"Ch4",q:"Primary goal of a DDoS attack?",zh:"DDoS 攻击的主要目的？",opts:["Steal sensitive information","Overwhelm a service to disrupt availability","Take control of website","Gain unauthorized access"],ans:[1],ex:"DDoS=海量请求压垮服务、破坏可用性。"},
+ {c:"Ch4",q:"Attack tricking individuals into revealing personal info?",zh:"诱骗个人泄露信息的攻击？",opts:["DDoS","Phishing","Web-jacking","Server break-ins"],ans:[1],ex:"钓鱼 Phishing。"},
+ {c:"Ch4",q:"Common outcome of web-jacking?",zh:"网站劫持的常见结果？",opts:["Data theft from server","Redirecting users to a malicious site","Overloading network traffic","Exposing login credentials"],ans:[1],ex:"Web-jacking=重定向到恶意站点/内容被改。"},
+ {c:"Ch4",q:"Primary purpose of cookies?",zh:"Cookie 的主要用途？",opts:["Display advertisements","Store user preferences and session info","Track location","Execute scripts"],ans:[1],ex:"存偏好与会话信息。"},
+ {c:"Ch4",q:"Example of ACTIVE content?",zh:"主动内容例子？",opts:["Static images","Interactive videos or animations","Text content","Download files"],ans:[1],ex:"可交互/可自动执行的元素（视频、动画、脚本）。"},
+ {c:"Ch5",q:"Reading Octopus balance with a smartphone uses which NFC mode?",zh:"手机读八达通余额是哪种 NFC 模式？",opts:["Card emulation mode","Ad-hoc mode","Active communication mode","Reader/writer mode"],ans:[3],ex:"手机当读写器→Reader/writer mode；卡模拟是手机当卡被读。"},
+ {c:"Ch5",q:"Correct online payment information flow?",zh:"正确的在线支付信息流？",opts:["EShop→Gateway→EShop's Bank→Issuing Bank→Gateway→EShop","EShop's Bank→Gateway→Issuing Bank→EShop","Gateway→EShop's Bank→Gateway→Issuing Bank","EShop→Issuing Bank→EShop's Bank→Gateway→EShop"],ans:[0],ex:"商户→网关→收单行→发卡行→原路返回。必背！"},
+ {c:"Ch5",q:"What is a mobile signature?",zh:"什么是移动签名？",opts:["Scanned handwritten signature","Digital signature created on a SIM card with the user's private key","Stylus signature on touchscreen","Signature generated by software"],ans:[1],ex:"SIM 卡内用私钥生成的数字签名，PIN 验证，文本经安全连接送达 SIM。"},
+ {c:"Cloud",q:"The 5 essential characteristics of cloud computing (NIST) include:",zh:"NIST 云计算 5 大特征包括？",opts:["On-demand self-service","Broad network access","Resource pooling","Rapid elasticity & measured service"],ans:[0,1,2,3],ex:"全部正确：按需自助、广泛接入、资源池化、快速弹性、可计量。"},
+ {c:"Cloud",q:"Which service model lets you deploy your OWN apps using provider's tools/languages?",zh:"哪种服务模型用提供商工具部署自己的应用？",opts:["SaaS","PaaS","IaaS"],ans:[1],ex:"PaaS。IaaS=租基础设施装自己的 OS；SaaS=直接用现成应用。"},
+ {c:"AI",q:"Order of the FUNCTIONALITY perspective of AI:",zh:"AI 功能视角的排序？",opts:["Reactive → Limited memory → Theory of mind → Self-awareness","Limited memory → Reactive → Self-awareness → Theory of mind"],ans:[0],ex:"反应机→有限记忆→心智理论→自我意识。"}
+];
+const kbox=document.getElementById('kahoots');
+KAHOOT.forEach((m,i)=>{
+  const d=document.createElement('div');d.className='q';d.id='kh'+i;
+  let s='<div class="stem"><span class="tag">'+m.c+'</span> '+m.q+'<br><span class="en">'+m.zh+'</span></div><div class="opts">';
+  m.opts.forEach((o,j)=>{s+='<label data-k="'+i+'" data-j="'+j+'">'+String.fromCharCode(65+j)+') '+o+'</label>'});
+  s+='</div><button class="btn ghost" onclick="checkK('+i+')">核对 Check</button><div class="expl" id="kex'+i+'"><b>答案 Ans: '+m.ans.map(a=>String.fromCharCode(65+a)).join(', ')+'</b>（多选题可多选） · '+m.ex+'</div>';
+  d.innerHTML=s;kbox.appendChild(d);
+});
+kbox.addEventListener('click',e=>{
+  const l=e.target.closest('label[data-k]');if(!l)return;
+  l.classList.toggle('sel');
+});
+function checkK(i){revealK(i)}
+function revealK(i){
+  const m=KAHOOT[i];
+  document.querySelectorAll('label[data-k="'+i+'"]').forEach(l=>{
+    if(m.ans.includes(+l.dataset.j))l.classList.add('correct');
+    else if(l.classList.contains('sel'))l.classList.add('wrong');
+  });
+  document.getElementById('kex'+i).classList.add('show');
+}
+function gradeKahoot(){
+  let right=0;
+  KAHOOT.forEach((m,i)=>{
+    const sels=[...document.querySelectorAll('label[data-k="'+i+'"].sel')].map(l=>+l.dataset.j);
+    if(sels.length&&sels.every(j=>m.ans.includes(j))&&sels.length===m.ans.length)right++;
+    revealK(i);
+  });
+  document.getElementById('kscore').textContent='全对题数: '+right+' / '+KAHOOT.length;
+}
+// nav
+document.querySelectorAll('nav button').forEach(b=>b.onclick=()=>{
+  document.querySelectorAll('nav button').forEach(x=>x.classList.remove('active'));
+  document.querySelectorAll('main section').forEach(x=>x.classList.remove('show'));
+  b.classList.add('active');document.getElementById(b.dataset.t).classList.add('show');
+  window.scrollTo({top:0});
+});
+</script>
+</body>
+</html>
